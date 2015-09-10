@@ -39,6 +39,7 @@
     ranger
     emacs
     gitAndTools.gitFull
+    firefox
   ];
 
   # Enable the X11 windowing system.
