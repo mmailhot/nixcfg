@@ -40,6 +40,7 @@
     emacs
     gitAndTools.gitFull
     firefox
+    nix-repl
   ];
 
   # Enable the X11 windowing system.
@@ -52,7 +53,9 @@
   services.xserver.desktopManager.xterm.enable = false;
   services.xserver.desktopManager.xfce.enable = true;
   services.xserver.desktopManager.default = "xfce";
-
+ 
+  services.vmwareGuest.enable = true;
+      
   # Enable the KDE Desktop Environment.
   # services.xserver.displayManager.kdm.enable = true;
   # services.xserver.desktopManager.kde4.enable = true;
