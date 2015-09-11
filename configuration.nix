@@ -11,6 +11,7 @@
       ./include/fonts.nix
       ./include/desktop-env.nix
       ./include/link-dotfiles.nix
+      ./include/development.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -35,9 +36,6 @@
   environment.systemPackages = with pkgs; [
     wget
     bash
-    emacs
-    gitAndTools.gitFull
-    nix-repl
   ];
 
   services.vmwareGuest.enable = true;
