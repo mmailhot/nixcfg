@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./include/fonts.nix
+      ./include/desktop-env.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -35,25 +36,12 @@
   environment.systemPackages = with pkgs; [
     wget
     bash
-    vim
-    ranger
     emacs
     gitAndTools.gitFull
-    firefox
     nix-repl
   ];
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    xkbVariant = "colemak";
-  };
-
-  services.xserver.desktopManager.xterm.enable = false;
-  services.xserver.desktopManager.xfce.enable = true;
-  services.xserver.desktopManager.default = "xfce";
- 
   services.vmwareGuest.enable = true;
       
   # Enable the KDE Desktop Environment.
