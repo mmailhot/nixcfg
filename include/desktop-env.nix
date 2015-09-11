@@ -26,6 +26,7 @@
      openjdk
      xfce.terminal
      dmenu
+     i3status
    ];
 
    services.xserver = {
