@@ -24,17 +24,19 @@
      vlc
      ffmpeg
      openjdk
+     xfce.terminal
+     dmenu
    ];
 
    services.xserver = {
      enable = true;
      layout = "us";
      xkbVariant = "colemak";
-     # desktopManager = {
-     #   xterm.enable = false;
+     desktopManager = {
+       xterm.enable = false;
      #   xfce.enable = true;
      #   default = "xfce";
-     # };
+     };
      windowManager = {
        i3.enable = true;
        default = "i3";

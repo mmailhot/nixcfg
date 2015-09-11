@@ -22,8 +22,6 @@
   boot.loader.grub.device = "/dev/sda";
 
   networking.hostName = "mmailhot-nixos"; # Define your hostname.
-  networking.hostId = "52163215";
-  # networking.wireless.enable = true;  # Enables wireless.
 
   # Select internationalisation properties.
   i18n = {
@@ -42,21 +40,17 @@
     nix-repl
   ];
 
-  # Enable the X11 windowing system.
   services.vmwareGuest.enable = true;
-      
-  # Enable the KDE Desktop Environment.
-  # services.xserver.displayManager.kdm.enable = true;
-  # services.xserver.desktopManager.kde4.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  programs.zsh.enable = true;
+
   users.extraUsers.mmailhot = {
     group = "users";
     extraGroups = ["wheel"];
     uid = 1000;
     createHome = true;
     home = "/home/mmailhot";
-    shell = "/run/current-system/sw/bin/bash";
+    shell = "/run/current-system/sw/bin/zsh";
   };
 
 }
