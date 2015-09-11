@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./include/fonts.nix
       ./include/desktop-env.nix
+      ./include/link-dotfiles.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
