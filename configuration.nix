@@ -36,6 +36,7 @@
   environment.systemPackages = with pkgs; [
     wget
     bash
+    which
   ];
 
   services.vmwareGuest.enable = true;

@@ -27,6 +27,7 @@
      xfce.terminal
      dmenu
      i3status
+     nitrogen
    ];
 
    services.xserver = {
