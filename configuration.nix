@@ -22,6 +22,7 @@
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda";
 
+  networking.networkmanager.enable = true;
   networking.hostName = "mmailhot-nixos"; # Define your hostname.
 
   # Select internationalisation properties.
@@ -37,7 +38,17 @@
     wget
     bash
     which
+    (pkgs.texLiveAggregationFun { paths = [ pkgs.texLive pkgs.texLiveExtra ];})
   ];
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    open-vm-tools = pkgs.stdenv.lib.overrideDerivation pkgs.open-vm-tools (oldAttrs: {
+      postPatch = ''
+        sed -i 's,^confdir = ,confdir = ''${prefix},' scripts/Makefile.am
+        sed -i 's,etc/vmware-tools,''${prefix}/etc/vmware-tools,' services/vmtoolsd/Makefile.am
+      '';
+    });
+  };
 
   services.vmwareGuest.enable = true;
 
@@ -45,11 +56,12 @@
 
   users.extraUsers.mmailhot = {
     group = "users";
-    extraGroups = ["wheel"];
+    extraGroups = ["wheel" "networkmanager"];
     uid = 1000;
     createHome = true;
     home = "/home/mmailhot";
     shell = "/run/current-system/sw/bin/zsh";
   };
 
+  hardware.pulseaudio.enable = true;
 }

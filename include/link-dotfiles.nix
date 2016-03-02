@@ -7,7 +7,7 @@ with lib;
     ''
       cd /home/mmailhot
       ln -fs ${../dotfiles/spacemacs/dot-spacemacs} .spacemacs
-      ln -fs ${../dotfiles/i3} .i3
+      ln -fsn ${../dotfiles/i3} .i3
       ln -fsn ${../dotfiles/prezto} .zprezto
       ln -fs ${../dotfiles/prezto/runcoms/zlogin} .zlogin
       ln -fs ${../dotfiles/prezto/runcoms/zpreztorc} .zpreztorc
