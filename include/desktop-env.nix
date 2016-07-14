@@ -22,6 +22,7 @@
      dmenu
      i3status
      nitrogen
+     traceroute
    ];
 
    services.xserver = {

@@ -20,5 +20,6 @@
     rustc
     cargo
     racket
+    valgrind
   ];
 }
