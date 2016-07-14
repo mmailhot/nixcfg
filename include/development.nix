@@ -17,6 +17,8 @@
     libevent
     openssl
     zeal
-    wkhtmltopdf
+    rustc
+    cargo
+    racket
   ];
 }

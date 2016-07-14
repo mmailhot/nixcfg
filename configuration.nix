@@ -12,9 +12,12 @@
       ./include/desktop-env.nix
       ./include/link-dotfiles.nix
       ./include/development.nix
+      ./include/ssh.nix
     ];
 
+  nix.useSandbox = true;
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowBroken = true;
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -38,17 +41,7 @@
     wget
     bash
     which
-    (pkgs.texLiveAggregationFun { paths = [ pkgs.texLive pkgs.texLiveExtra ];})
   ];
-
-  nixpkgs.config.packageOverrides = pkgs: {
-    open-vm-tools = pkgs.stdenv.lib.overrideDerivation pkgs.open-vm-tools (oldAttrs: {
-      postPatch = ''
-        sed -i 's,^confdir = ,confdir = ''${prefix},' scripts/Makefile.am
-        sed -i 's,etc/vmware-tools,''${prefix}/etc/vmware-tools,' services/vmtoolsd/Makefile.am
-      '';
-    });
-  };
 
   services.vmwareGuest.enable = true;
 

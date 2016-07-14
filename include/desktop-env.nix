@@ -3,11 +3,6 @@
 {
    nixpkgs.config = {
      allowUnfree = true;
-     firefox = {
-       jre = true;
-       enableGoogleTalkPlugin = true;
-       enableAdobeFlash = false;
-     };
      chromium = {
        jre = true;
        enableGoogleTalkPlugin = true;
@@ -20,7 +15,6 @@
      vim
      ranger
      chromium
-     firefox
      vlc
      ffmpeg
      openjdk
